@@ -4,56 +4,43 @@
 <body>
     <div class="d-flex" id="wrapper">
 
-    <!-- Sidebar -->
-    <div class="bg-light border-right" id="sidebar-wrapper">
-        <div class="sidebar-heading">Hashcode </div>
-        <div class="list-group list-group-flush">
-            <img src="<?php echo base_url(); ?>/assets/images/food-and-restaurant.png" class="profile_image" alt="Codehub">
-            <a href="<?= base_url('index.php/Admin/welcome') ?>" class="list-group-item list-group-item-action bg-light">Dashboard</a>
-            <a href="#" class="list-group-item list-group-item-action bg-light">Videos</a>
-            <a href="#" class="list-group-item list-group-item-action bg-light">About Us</a>
-            <a href="#" class="list-group-item list-group-item-action bg-light">Contact Us</a>
-            <!-- <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
-            <a href="#" class="list-group-item list-group-item-action bg-light">Status</a> -->
-        </div>
-    </div>
-    <!-- /#sidebar-wrapper -->
+        <?php include('sidebar.php'); ?>
 
-    <div class="container-fluid">
-        <!-- Table Link : Bootstrap table editable - examples & tutorial. Basic & advanced usage - Material Design for Bootstrap -->
-        <div class="card mt-5">
-            <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Categories</h3>
-            <div class="card-body">
-                <div id="table" class="table-editable">
-                    <span class="table-add float-right mb-3 mr-2"><a href="javascript:void(0);" onclick="showCategoryModel();" class="text-success"><i
-                                class="fas fa-plus fa-2x" aria-hidden="true"></i></a></span>
-                    <table id="CategoryData" class="table table-bordered table-responsive-md table-striped text-center ">
-                        <thead>
-                            <tr>
-                                <th class="text-center">ID</th>
-                                <th class="text-center">Category Name</th>
-                                <th class="text-center">Created Date</th>
-                                <th class="text-center">Image</th>
-                                <th class="text-center">Edit</th>
-                                <th class="text-center">Delete</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php if(count($categories)) { ?>
-                                <?php foreach ($categories as $category) {
-                                        $this->load->view('admin/category_list_rowdata', ['category'=>$category]);
-                                    }?>
-                            <?php } else { ?>
+        <div class="container-fluid">
+            <!-- Table Link : Bootstrap table editable - examples & tutorial. Basic & advanced usage - Material Design for Bootstrap -->
+            <div class="card mt-5">
+                <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Categories</h3>
+                <div class="card-body">
+                    <div id="table" class="table-editable">
+                        <span class="table-add float-right mb-3 mr-2"><a href="javascript:void(0);" onclick="showCategoryModel();" class="text-success"><i
+                                    class="fas fa-plus fa-2x" aria-hidden="true"></i></a></span>
+                        <table id="CategoryData" class="table table-bordered table-responsive-md table-striped text-center ">
+                            <thead>
                                 <tr>
-                                    <td>No Any Category Found! Please Add new Catgory</td>
+                                    <th class="text-center">ID</th>
+                                    <th class="text-center">Category Name</th>
+                                    <th class="text-center">Created Date</th>
+                                    <th class="text-center">Image</th>
+                                    <th class="text-center">Edit</th>
+                                    <th class="text-center">Delete</th>
                                 </tr>
-                            <?php } ?>
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                <?php if(count($categories)) { ?>
+                                    <?php foreach ($categories as $category) {
+                                            $this->load->view('admin/category_list_rowdata', ['category'=>$category]);
+                                        }?>
+                                <?php } else { ?>
+                                    <tr>
+                                        <td>No Any Category Found! Please Add new Catgory</td>
+                                    </tr>
+                                <?php } ?>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
     </div>
     <!-- /#wrapper -->
     
